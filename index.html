@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>—</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fuente mono -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="box">
+
+    <!-- SPINNER -->
+    <div id="loader" class="spinner">
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+    </div>
+
+    <!-- CONTADOR -->
+    <div id="timer">--:--:--:--</div>
+
+    <!-- TEXTO -->
+    <div id="text">Pronto.</div>
+
+    <!-- BOTÓN DE PISTA -->
+    <button id="hintBtn" class="hint hidden">?</button>
+
+    <!-- PIN INICIAL -->
+    <div id="pinGate" class="hidden">
+      <div class="pin-inputs">
+        <input maxlength="1" inputmode="numeric">
+        <input maxlength="1" inputmode="numeric">
+        <input maxlength="1" inputmode="numeric">
+        <input maxlength="1" inputmode="numeric">
+      </div>
+      <button id="pinBtn">→</button>
+    </div>
+
+    <!-- ACERTIJO -->
+    <div id="riddle" class="hidden"></div>
+
+    <!-- INPUT RESPUESTA -->
+    <div id="gate" class="hidden">
+      <input id="code" placeholder="—">
+      <button id="btn">→</button>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE PISTA -->
+  <div id="hintModal" class="hidden">
+    <div class="hint-box">
+      <div id="hintText"></div>
+      <button id="closeHint">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

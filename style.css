@@ -1,0 +1,218 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.12) 1.5px, transparent 1.5px),
+    #070707;
+  background-size: 90px 90px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+#box{
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative; /* 🔑 IMPORTANTE para el botón ? */
+}
+
+/* =========================
+   SPINNER (CUBITO)
+========================= */
+#loader{
+  margin-bottom: 24px;
+  transition: opacity .4s ease;
+}
+
+.spinner{
+  width: 48px;
+  height: 48px;
+  position: relative;
+  --clr: rgba(255,255,255,.55);
+  --clr-alpha: rgba(255,255,255,.06);
+  animation: spinner 1.6s infinite ease;
+  transform-style: preserve-3d;
+}
+
+.spinner > div{
+  background-color: var(--clr-alpha);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  border: 3px solid var(--clr);
+}
+
+.spinner div:nth-of-type(1){transform: translateZ(-24px) rotateY(180deg);}
+.spinner div:nth-of-type(2){transform: rotateY(-270deg) translateX(50%); transform-origin: top right;}
+.spinner div:nth-of-type(3){transform: rotateY(270deg) translateX(-50%); transform-origin: center left;}
+.spinner div:nth-of-type(4){transform: rotateX(90deg) translateY(-50%); transform-origin: top center;}
+.spinner div:nth-of-type(5){transform: rotateX(-90deg) translateY(50%); transform-origin: bottom center;}
+.spinner div:nth-of-type(6){transform: translateZ(24px);}
+
+@keyframes spinner{
+  0%{transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);}
+  50%{transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);}
+  100%{transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);}
+}
+
+/* =========================
+   CONTADOR
+========================= */
+#timer{
+  font-size: clamp(26px, 8vw, 40px);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  opacity: .85;
+}
+
+/* =========================
+   TEXTO
+========================= */
+#text{
+  font-size: 15px;
+  opacity: .6;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   BOTÓN DE PISTA ( ? )
+========================= */
+.hint{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.45);
+
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =========================
+   PIN
+========================= */
+#pinGate{
+  margin-top: 10px;
+}
+
+.pin-inputs{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.pin-inputs input{
+  width: 48px;
+  height: 56px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+  border-radius: 4px;
+}
+
+/* =========================
+   ACERTIJO
+========================= */
+#riddle{
+  margin: 20px 0;
+  white-space: pre-line;
+  opacity: .85;
+}
+
+/* =========================
+   INPUT RESPUESTA
+========================= */
+input#code{
+  width: 220px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  padding: 14px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+button{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  padding: 12px;
+  width: 220px;
+  cursor: pointer;
+}
+
+/* =========================
+   MODAL DE PISTA
+========================= */
+#hintModal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  z-index: 999;
+}
+
+#hintModal.hidden{
+  display: none;
+}
+
+.hint-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 18px;
+  max-width: 320px;
+  width: 80%;
+  text-align: center;
+}
+
+.hint-box button{
+  margin-top: 14px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* =========================
+   UTILIDADES
+========================= */
+.hidden{
+  display: none;
+}
