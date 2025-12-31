@@ -18,7 +18,9 @@ body{
   padding: 20px;
 }
 
-/* CONTENEDOR */
+/* =========================
+   CONTENEDOR
+========================= */
 #box{
   width: 100%;
   max-width: 480px;
@@ -26,9 +28,12 @@ body{
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative; /* 🔑 IMPORTANTE para el botón ? */
 }
 
-/* SPINNER */
+/* =========================
+   SPINNER (CUBITO)
+========================= */
 #loader{
   margin-bottom: 24px;
   transition: opacity .4s ease;
@@ -37,6 +42,7 @@ body{
 .spinner{
   width: 48px;
   height: 48px;
+  position: relative;
   --clr: rgba(255,255,255,.55);
   --clr-alpha: rgba(255,255,255,.06);
   animation: spinner 1.6s infinite ease;
@@ -64,7 +70,9 @@ body{
   100%{transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);}
 }
 
-/* CONTADOR */
+/* =========================
+   CONTADOR
+========================= */
 #timer{
   font-size: clamp(26px, 8vw, 40px);
   letter-spacing: 3px;
@@ -72,14 +80,45 @@ body{
   opacity: .85;
 }
 
-/* TEXTO */
+/* =========================
+   TEXTO
+========================= */
 #text{
   font-size: 15px;
   opacity: .6;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
-/* PIN */
+/* =========================
+   BOTÓN DE PISTA ( ? )
+========================= */
+.hint{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.45);
+
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =========================
+   PIN
+========================= */
 #pinGate{
   margin-top: 10px;
 }
@@ -104,14 +143,18 @@ body{
   border-radius: 4px;
 }
 
-/* ACERTIJO */
+/* =========================
+   ACERTIJO
+========================= */
 #riddle{
   margin: 20px 0;
   white-space: pre-line;
   opacity: .85;
 }
 
-/* INPUT NORMAL */
+/* =========================
+   INPUT RESPUESTA
+========================= */
 input#code{
   width: 220px;
   background: transparent;
@@ -131,4 +174,45 @@ button{
   cursor: pointer;
 }
 
-.hidden{display:none;}
+/* =========================
+   MODAL DE PISTA
+========================= */
+#hintModal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  z-index: 999;
+}
+
+#hintModal.hidden{
+  display: none;
+}
+
+.hint-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0b0b0b;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 18px;
+  max-width: 320px;
+  width: 80%;
+  text-align: center;
+}
+
+.hint-box button{
+  margin-top: 14px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* =========================
+   UTILIDADES
+========================= */
+.hidden{
+  display: none;
+}

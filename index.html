@@ -5,9 +5,7 @@
   <title>—</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Fuente mono -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,19 +13,24 @@
 
   <div id="box">
 
-    <!-- SPINNER -->
-    <div id="loader" class="spinner">
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
+    <!-- CUBO / SPINNER (si lo tienes animado por CSS) -->
+    <div id="loader">
+      <div class="spinner">
+        <div></div><div></div><div></div>
+        <div></div><div></div><div></div>
+      </div>
     </div>
 
     <!-- CONTADOR -->
-    <div id="timer">--:--:--:--</div>
+    <div id="timer">— — : — — : — — : — —</div>
 
-    <!-- TEXTO -->
-    <div id="text">Pronto.</div>
+    <!-- TEXTO PRINCIPAL -->
+    <div id="text"></div>
 
-    <!-- PIN INICIAL -->
+    <!-- BOTÓN PISTA -->
+    <button id="hintBtn" class="hidden">?</button>
+
+    <!-- PIN -->
     <div id="pinGate" class="hidden">
       <div class="pin-inputs">
         <input maxlength="1" inputmode="numeric">
@@ -47,6 +50,14 @@
       <button id="btn">→</button>
     </div>
 
+  </div>
+
+  <!-- MODAL PISTA -->
+  <div id="hintModal" class="hidden">
+    <div class="hint-box">
+      <div id="hintText"></div>
+      <button id="closeHint">Cerrar</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
